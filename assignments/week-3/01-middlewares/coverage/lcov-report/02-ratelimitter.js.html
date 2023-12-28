@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for 01-requestcount.js</title>
+    <title>Code coverage report for 02-ratelimitter.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> 01-requestcount.js</h1>
+        <h1><a href="index.html">All files</a> 02-ratelimitter.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.05% </span>
+                <span class="strong">98.07% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/34</span>
+                <span class='fraction'>51/52</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.05% </span>
+                <span class="strong">98.07% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>33/34</span>
+                <span class='fraction'>51/52</span>
             </div>
         
             
@@ -97,7 +97,25 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -111,18 +129,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -131,37 +138,84 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// You have been given an express server which has a few endpoints.
 // Your task is to create a global middleware (app.use) which will
-// maintain a count of the number of requests made to the server in the global
-// requestCount variable
+// rate limit the requests from a user to only 5 request per second
+// If a user sends more than 5 requests in a single second, the server
+// should block them with a 404.
+// User will be sending in their user id in the header as 'user-id'
+// You have been given a numberOfRequestsForUser object to start off with which
+// clears every one second
+// Import required modules and set up the Express app
+const request = require('supertest'); // Importing Supertest for testing
+const assert = require('assert'); // Importing assertion library
+const express = require('express'); // Importing Express.js
+const app = express(); // Creating an instance of Express app
 &nbsp;
-const request = require('supertest');
-const assert = require('assert');
-const express = require('express');
+// Object to track the number of requests made by each user within a second
+let numberOfRequestsForUser = {};
 &nbsp;
-const app = express();
-let requestCount = 0;
+// Resetting the request count for each user every second
+setInterval(() =&gt; {
+    numberOfRequestsForUser = {};
+}, 1000);
 &nbsp;
-// Global middleware to increment the request count for every incoming request
+// Middleware to enforce rate limiting
 app.use((req, res, next) =&gt; {
-  requestCount += 1; // Incrementing the request count for each incoming request
-  next(); // Passing control to the next middleware or route handler
+    const user = req.headers["user-id"]; // Extracting user ID from request headers
+    if (numberOfRequestsForUser[user]) {
+        // If user has made requests within the last second
+        numberOfRequestsForUser[user] += 1;
+        if (numberOfRequestsForUser[user] &gt; 5) {
+            // If user has exceeded the rate limit of 5 requests per second
+            res.status(404).send("Rate limit exceeded"); // Blocking the request with a 404 response
+            return;
+        }
+        next(); // Allowing the request to proceed
+    } else {
+        // If it's the first request from the user within the last second
+        numberOfRequestsForUser[user] = 1; // Initializing the request count for the user
+        next(); // Allowing the request to proceed
+    }
 });
 &nbsp;
-// Endpoint to handle GET requests for user information
-app.get('/user', function(req, res) {
-  res.status(200).json({ name: 'john' }); // Sending a JSON response with user data
+// Sample endpoint - GET request to retrieve user information
+app.get('/user', function (req, res) {
+    res.status(200).json({ name: 'john' }); // Sending a JSON response with user data
 });
 &nbsp;
-// Endpoint to handle POST requests for creating a dummy user
-app.post('/user', function(req, res) {
-<span class="cstat-no" title="statement not covered" >  res.status(200).json({ msg: 'created dummy user' }); // Sending a JSON response for user creation</span>
-});
-&nbsp;
-// Endpoint to retrieve the current request count
-app.get('/requestCount', function(req, res) {
-  res.status(200).json({ requestCount }); // Sending the current request count as a JSON response
+// Sample endpoint - POST request to create a dummy user
+app.post('/user', function (req, res) {
+<span class="cstat-no" title="statement not covered" >    res.status(200).json({ msg: 'created dummy user' }); // Sending a JSON response for user creation</span>
 });
 &nbsp;
 module.exports = app; // Exporting the Express app
@@ -172,7 +226,7 @@ module.exports = app; // Exporting the Express app
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-28T17:33:28.270Z
+                at 2023-12-28T17:32:33.119Z
             </div>
         <script src="prettify.js"></script>
         <script>
