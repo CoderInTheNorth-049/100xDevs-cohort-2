@@ -1,6 +1,8 @@
-const jwt = require('jsonwebtoken');
-const jwtPassword = 'secret';
+const jwt = require('jsonwebtoken'); // Importing the 'jsonwebtoken' library for JWT operations
+const jwtPassword = 'secret'; // Setting the secret key for JWT signing
 
+// Importing the 'zod' library for schema validation
+const z = require('zod');
 
 /**
  * Generates a JWT for a given username and password.
@@ -13,8 +15,22 @@ const jwtPassword = 'secret';
  *                        Returns null if the username is not a valid email or
  *                        the password does not meet the length requirement.
  */
+const emailSchema = z.string().email(); // Creating a schema for validating email format
+const passwordSchema = z.string().min(6); // Creating a schema for password length validation
+
 function signJwt(username, password) {
-    // Your code here
+    // Validating username and password against defined schemas
+    const validUsername = emailSchema.safeParse(username);
+    const validPassword = passwordSchema.safeParse(password);
+
+    // If either username or password fails validation, return null
+    if (validUsername.error || validPassword.error) {
+        return null;
+    }
+
+    // Generating a JWT with the provided username and the secret key
+    let token = jwt.sign({ username: username }, jwtPassword);
+    return token;
 }
 
 /**
@@ -26,24 +42,39 @@ function signJwt(username, password) {
  *                    using the secret key.
  */
 function verifyJwt(token) {
-    // Your code here
+    let flag = true;
+    try {
+        // Verifying the token using the provided secret key
+        jwt.verify(token, jwtPassword);
+    } catch (e) {
+        // If verification fails, set the flag to false
+        flag = false;
+    }
+    return flag; // Returning the flag indicating verification status
 }
 
 /**
  * Decodes a JWT to reveal its payload without verifying its authenticity.
  *
  * @param {string} token - The JWT string to decode.
- * @returns {object|false} The decoded payload of the JWT if the token is a valid JWT format.
- *                         Returns false if the token is not a valid JWT format.
+ * @returns {boolean} True if the token is a valid JWT format.
+ *                    Returns false if the token is not a valid JWT format.
  */
 function decodeJwt(token) {
-    // Your code here
+    // Decoding the token to extract its payload without verification
+    let decoded = jwt.decode(token);
+
+    // If decoding returns a payload (valid JWT format), return true; otherwise, return false
+    if (decoded) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-
 module.exports = {
-  signJwt,
-  verifyJwt,
-  decodeJwt,
-  jwtPassword,
+    signJwt,
+    verifyJwt,
+    decodeJwt,
+    jwtPassword,
 };
