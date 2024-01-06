@@ -15,10 +15,28 @@
         <strong>${todo.title}</strong><br>
         <em>${todo.description}</em><br>
         <button onclick="removeTodoFromDom(${todo.id})">Remove</button>
+        <button onclick="updateTodoInDom(${todo.id})">update</button>
         `;
       todosDiv.appendChild(todoDiv);
     }
-  
+
+    function updateTodoInDom(todoId) {
+    const todosDiv = document.getElementById("todos");
+    const todoDiv = document.getElementById(`todo-${todoId}`);
+
+    let title = todoDiv.querySelector('strong').innerHTML;
+    let description = todoDiv.querySelector('em').innerHTML;
+    
+    //todosDiv.remove(todoDiv);
+
+    let T = document.getElementById("title");
+    let D = document.getElementById("description");
+    T.value = title;
+    D.value = description;
+    removeTodoFromDom(todoId);
+    
+  }
+
     function removeTodoFromDom(todoId) {
       todoState = todoState.filter(curr => curr.id != todoId);
       oldTodoState = oldTodoState.filter(curr => curr.id != todoId);
@@ -28,10 +46,6 @@
         todoToRemove.remove();
       }
     }
-  
-  function updateTodoInDom(oldTodo, newTodo) {
-    
-  }
   
   function updateState(newTodos) {
     // Calculate the diff between newTodos and oldTodoState
@@ -70,7 +84,7 @@
 <body>
   <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
   <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
-  <button onclick="addTodo()">Add todo</button>
+  <button id="submit" onclick="addTodo()">Add todo</button>
   <br /> <br />
 
   <div id="todos">
