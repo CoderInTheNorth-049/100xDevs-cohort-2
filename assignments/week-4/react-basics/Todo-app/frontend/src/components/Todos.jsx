@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function Todos({todos}){
     return <div>
         {todos.map((todo) => {
@@ -8,4 +9,16 @@ export function Todos({todos}){
             </div>
             })}
     </div>
+=======
+export function Todos({todos}){
+    return <div>
+        {todos.map((todo) => {
+            return <div>
+                <h1>{todo.title}</h1>
+                <h2>{todo.description}</h2>
+                <button>{todo.completed == true ? "completed" : "complete"}</button>
+            </div>
+            })}
+    </div>
+>>>>>>> d4720f280b6c8f20ec47f3fde716e914016b81db
 }
