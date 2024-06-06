@@ -8,6 +8,6 @@ export const todosAtomFamily = atomFamily({
     get: (id) => async ({get}) => {
       const res = await axios.get(`https://sum-server.100xdevs.com/todo?id=${id}`);
       return res.data.todo;
-    },
+    }
   })
 });
