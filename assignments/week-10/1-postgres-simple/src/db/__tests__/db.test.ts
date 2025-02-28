@@ -50,9 +50,8 @@ describe('Todo Operations', () => {
     test('createTodo inserts a new todo for a user', async () => {
       const title = 'Test Todo';
       const description = 'Test Description';
-      await createTodo(userId, title, description);
-      const temp = await client.query('SELECT * FROM todos WHERE title = $1', [title]);
-      const todo = temp.rows[0];
+      const todo = await createTodo(userId, title, description);
+  
       expect(todo).toHaveProperty('id');
       expect(todo.title).toEqual(title);
       expect(todo.description).toEqual(description);
@@ -61,7 +60,7 @@ describe('Todo Operations', () => {
   
     test('updateTodo marks a todo as done', async () => {
       // First, create a todo to update
-      const { id:todoId } = await createTodo(userId, 'Update Test', 'To be updated');
+      const { id: todoId } = await createTodo(userId, 'Update Test', 'To be updated');
   
       const updatedTodo = await updateTodo(todoId);
       expect(updatedTodo.done).toEqual(true);
@@ -70,6 +69,7 @@ describe('Todo Operations', () => {
     test('getTodos retrieves all todos for a user', async () => {
       // Assuming there are already todos created in previous tests
       const todos = await getTodos(userId);
+  
       expect(todos.length).toBeGreaterThan(0);
       todos.forEach(todo => {
         expect(todo).toHaveProperty('id');

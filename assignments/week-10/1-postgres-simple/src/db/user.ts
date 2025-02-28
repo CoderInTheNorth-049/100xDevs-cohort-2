@@ -11,7 +11,7 @@ import { client } from "..";
  */
 export async function createUser(username: string, password: string, name: string) {
   try {
-    const createUserQuery = "INSERT INTO users (username, password, name) VALUES ($1, $2, $3)";
+    const createUserQuery = "INSERT INTO users (username, password, name) VALUES ($1, $2, $3) RETURNING *";
     const values = [username, password, name];
     const res = await client.query(createUserQuery, values);
     return res;
